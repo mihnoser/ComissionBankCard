@@ -1,5 +1,5 @@
 fun main() {
-    println(calculateFee("Visa", 500000, 150000))
+    println(calculateFee("Mastercard", 100000, 5000))
 }
 
 fun calculateFee(cardSystem: String = "Mir", lastTransfer: Int = 0, allTransfer: Int): Any {
@@ -18,9 +18,9 @@ fun calculateFee(cardSystem: String = "Mir", lastTransfer: Int = 0, allTransfer:
                 0
             } else {
                 val allFee = if (allAboveLimit > allTransfer) {
-                    allTransfer
-                } else {
                     allAboveLimit
+                } else {
+                    lastTransfer
                 }
                 (allFee * 0.006 + 20).toInt()
             }
